@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginFragment">
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Login Screen"
+        android:textColor="#513AB7"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:translationY="40dp" />
+
+
+    <Button
+
+        android:id="@+id/log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3"
+        android:layout_margin="10dp"
+        android:text="Login"
+        android:translationY="100dp" />
+
+    <Button
+
+        android:id="@+id/sigup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Sign Up"
+        android:translationY="160dp" />
+
+</FrameLayout>

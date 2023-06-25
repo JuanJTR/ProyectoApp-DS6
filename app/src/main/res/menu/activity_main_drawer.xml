@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_alimentos"
+            android:icon="@drawable/ic_menu_alimentos"
+            android:title="Alimentos" />
+        <item
+            android:id="@+id/nav_comida"
+            android:icon="@drawable/ic_menu_comida"
+            android:title="Comida" />
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_entretenimiento"
+            android:title="Entretenimiento" />
+        <item
+            android:id="@+id/nav_pagos"
+            android:icon="@drawable/ic_menu_pagar"
+            android:title="Pagos y Cuentas" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_ropa"
+            android:title="Ropa y Calzado" />
+        <item
+            android:id="@+id/nav_salud"
+            android:icon="@drawable/ic_menu_salud"
+            android:title="Salud"
+            />
+        <item
+            android:id="@+id/nav_transporte"
+            android:icon="@drawable/ic_menu_transporte"
+            android:title="Transporte"
+            />
+        <item
+            android:id="@+id/nav_otros"
+            android:icon="@drawable/ic_menu_otros"
+            android:title="Otros"
+            />
+
+
+    </group>
+</menu>

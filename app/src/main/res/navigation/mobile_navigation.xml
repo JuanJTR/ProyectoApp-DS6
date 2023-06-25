@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.applicationgastos.ui.Home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.applicationgastos.ui.entretenimiento.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_comida"
+        android:name="com.example.applicationgastos.ui.comida.ComidaFragment"
+        android:label="Comida"
+        tools:layout="@layout/fragment_comida" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.applicationgastos.ui.ropaycalzado.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_alimentos"
+        android:name="com.example.applicationgastos.ui.alimentos.AlimentosFragment"
+        android:label="Alimentos"
+        tools:layout="@layout/fragment_alimentos" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.applicationgastos.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pagos"
+        android:name="com.example.applicationgastos.ui.pagosycuentas.PagosFragment"
+        android:label="Pagos y Cuentas"
+        tools:layout="@layout/fragment_pagos" />
+    <fragment
+        android:id="@+id/nav_salud"
+        android:name="com.example.applicationgastos.ui.salud.SaludFragment"
+        android:label="Salud"
+        tools:layout="@layout/fragment_salud" />
+    <fragment
+        android:id="@+id/nav_transporte"
+        android:name="com.example.applicationgastos.ui.transporte.TransporteFragment"
+        android:label="Transporte"
+        tools:layout="@layout/fragment_transporte" />
+    <fragment
+        android:id="@+id/nav_otros"
+        android:name="com.example.applicationgastos.ui.otros.OtrosFragment"
+        android:label="Otros"
+        tools:layout="@layout/fragment_otros" />
+    <fragment
+        android:id="@+id/closeFragment"
+        android:name="com.example.applicationgastos.ui.CloseFragment"
+        android:label="fragment_close"
+        tools:layout="@layout/fragment_close" >
+        <action
+            android:id="@+id/action_closeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+
+</navigation>
