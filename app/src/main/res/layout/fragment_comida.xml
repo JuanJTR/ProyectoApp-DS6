@@ -1,18 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.comida.ComidaFragment">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gastos de Comida"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:padding="16dp"/>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TableRow
+                style="@style/TableHeaderStyle"
+                >
+
+                <TextView
+                    style="@style/TableCellStyle"
+                    android:text="Detalle"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:text="Monto"
+                    style="@style/TableCellStyle"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:text="%"
+                    style="@style/TableCellStyle"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="#FFFFFF"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Supermercado"
+                    style="@style/TableCellStyle"/>
+
+                <TextView
+                    style="@style/TableCellStyle"
+                    android:text="200.00" />
+
+                <TextView
+                    style="@style/TableCellStyle"
+                    android:text="20%" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comida"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:translationX="160dp"
-        android:translationY="350dp" />
-
-
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="#673AB7"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 </FrameLayout>
