@@ -33,31 +33,34 @@
                     style="@style/TableCellStyle"
                     android:text="Detalle"
                     android:fontFamily="sans-serif-black"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FBFAFA" />
 
                 <TextView
                     android:text="Monto"
                     style="@style/TableCellStyle"
                     android:fontFamily="sans-serif-black"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FBFAFA"/>
                 <TextView
                     android:text="%"
                     style="@style/TableCellStyle"
                     android:fontFamily="sans-serif-black"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FBFAFA"/>
             </TableRow>
 
             <TableRow>
                 <TextView
-                    android:text="Supermercado"
+                    android:text="Viaje Francia"
+                    android:textColor="#424040"
                     style="@style/TableCellStyle"/>
 
                 <TextView
                     style="@style/TableCellStyle"
-                    android:text="200.00" />
+                    android:textColor="#424040"
+                    android:text="2,000.00" />
 
                 <TextView
                     style="@style/TableCellStyle"
+                    android:textColor="#424040"
                     android:text="20%" />
 
             </TableRow>
@@ -73,6 +76,6 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:backgroundTint="#673AB7"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/add_32" />
 
 </FrameLayout>

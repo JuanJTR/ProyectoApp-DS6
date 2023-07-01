@@ -15,6 +15,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.applicationgastos.databinding.ActivityMainBinding
 import com.example.applicationgastos.ui.CloseFragment
+import com.example.applicationgastos.ui.Home.HomeFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,21 +26,55 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+//        val flobutton: FloatingActionButton = findViewById(R.id.fab_al_btn)
+//        flobutton.setOnClickListener{
+//
+//
+//            Intent i = new Intent(getApplicationContext(),HomeFragment.class);
+//            startActivity(i);
+//        }
+
+       /* binding.appBarMain.fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+
+            //ESTO VA EN EL APP_BAR_MAIN.XML, EN LA LINEA 25
+//            Intent miIntent = new Intent(MainActivity.this,HomeFragment.class);
+//            startActivity(miIntent)//accion
+
+//            val intent = Intent(this,CloseFragment::class.java)
+//            startActivity(intent)//accion
+
+        }*/
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
+        /*binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-        }
+
+                **ESTO VA EN EL APP_BAR_MAIN.XML, EN LA LINEA 25
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="#673AB7"
+        app:srcCompat="@drawable/ic_add" />
+
+        }*/
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        //opciones de barra de menu
+        //opciones de barra de menu lateral
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_gallery,R.id.nav_comida ,R.id.nav_slideshow,R.id.nav_alimentos,R.id.nav_pagos,R.id.nav_salud,R.id.nav_transporte,R.id.nav_otros
@@ -76,4 +112,47 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+//    <TableLayout
+//    android:id="@+id/tableLayout"
+//    android:layout_marginTop="5dp"
+//    android:layout_gravity="center"
+//    android:gravity="center"
+//    android:layout_width="match_parent"
+//    android:layout_height="wrap_content"/>
+//
+//    private fun setupTable(){
+//        val tableRow0 = TableRow(requireContext())
+//        tableRow0.setBackgroundResource(R.color.gray)
+//        //Crear Headers para la tabla
+//        val textView0 = TextView(requireContext())
+//        textView0.text=" Mes "
+//        textView0.setTextColor(Color.BLACK)
+//        //agregar textView a la fila de la tabla:
+//        tableRow0.addView(textView0)
+//        val textView1 = TextView(requireContext())
+//        textView1.text=" Cantidad de Ventas "
+//        textView1.setTextColor(Color.BLACK)
+//        //agregar textView a la fila de la tabla:
+//        tableRow0.addView(textView1)
+//        //Agregar fila al tableLayout
+//        binding.tableLayout.addView(tableRow0)
+//
+//        for (i in 1..5){
+//            val tblRow = TableRow(requireContext())
+//            val tv0 = TextView(requireContext())
+//            tv0.text="Mes $i "
+//            tv0.gravity=Gravity.CENTER
+//            tblRow.addView(tv0)
+//
+//            val tv1 = TextView(requireContext())
+//            tv1.text=" ${i*10} "
+//            tv1.gravity=Gravity.CENTER
+//            tblRow.addView(tv1)
+//            binding.tableLayout.addView(tblRow)
+//        }
+//
+//    }
+
 }
+

@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class SlideshowViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
+    /*private val _text = MutableLiveData<String>().apply {
         value = "Ropa y Calzado"
     }
-    val text: LiveData<String> = _text
+    val text: LiveData<String> = _text*/
 }

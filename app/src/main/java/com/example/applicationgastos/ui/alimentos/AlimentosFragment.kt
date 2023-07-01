@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.applicationgastos.R
+import com.example.applicationgastos.ui.Home.HomeFragment
 
 class AlimentosFragment : Fragment() {
 
@@ -29,4 +30,15 @@ class AlimentosFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+//    fun onFabClick(view: View) {
+//        // Código para realizar la acción deseada al hacer clic en el FloatingActionButton
+//
+//        // Por ejemplo, puedes navegar a otro fragmento
+//        val nextFragment = HomeFragment()
+//        val fragmentManager = requireActivity().supportFragmentManager
+//        fragmentManager.beginTransaction()
+//            .replace(R.id.nav_home, nextFragment)
+//            .addToBackStack(null)
+//            .commit()
+//    }
 }
