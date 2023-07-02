@@ -1,10 +1,7 @@
 package com.example.applicationgastos
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,10 +10,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.example.applicationgastos.databinding.ActivityMainBinding
-import com.example.applicationgastos.ui.CloseFragment
-import com.example.applicationgastos.ui.Home.HomeFragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -60,7 +57,24 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
+
+        //Base de Datos
+        val db = Room.databaseBuilder(
+            this,
+            DB::class.java, "user"
+        ).allowMainThreadQueries().build()
+        println("users2")
+
+        lifecycleScope.launch {
+            db.daoUser().insertAll(User( "solisdonoso19", "Carlos Solis", "1234", 100.00
+        ))
+
+//      val userDao = db.daoUser()
+        val users = db.daoUser().getAll()
+        for (i in users){
+            println("${i.userID},${i.name}, ${i.user}, ${i.password}, ${i.salary}")
+        }
+    }}
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
