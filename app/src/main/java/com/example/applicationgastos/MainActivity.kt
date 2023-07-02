@@ -26,28 +26,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        val flobutton: FloatingActionButton = findViewById(R.id.fab_al_btn)
-//        flobutton.setOnClickListener{
-//
-//
-//            Intent i = new Intent(getApplicationContext(),HomeFragment.class);
-//            startActivity(i);
-//        }
-
-       /* binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-            //ESTO VA EN EL APP_BAR_MAIN.XML, EN LA LINEA 25
-//            Intent miIntent = new Intent(MainActivity.this,HomeFragment.class);
-//            startActivity(miIntent)//accion
-
-//            val intent = Intent(this,CloseFragment::class.java)
-//            startActivity(intent)//accion
-
-        }*/
-
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

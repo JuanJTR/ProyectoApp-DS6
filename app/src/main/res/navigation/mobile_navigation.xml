@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.applicationgastos.ui.LoginFragment"
-        android:label="fragment_login"
+        android:label="Register or Log in"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_nav_home"
@@ -71,6 +71,11 @@
             android:id="@+id/action_closeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/nvoGastoFragment"
+        android:name="com.example.applicationgastos.ui.NuevoGasto.NvoGastoFragment"
+        android:label="Agregar Gasto"
+        tools:layout="@layout/fragment_nvo_gasto" />
 
 
 </navigation>

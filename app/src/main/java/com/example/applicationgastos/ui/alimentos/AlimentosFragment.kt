@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.applicationgastos.R
 import com.example.applicationgastos.ui.Home.HomeFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AlimentosFragment : Fragment() {
 
@@ -28,17 +31,16 @@ class AlimentosFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(AlimentosViewModel::class.java)
         // TODO: Use the ViewModel
+
+        //enlace al fragmento de nuevo registro
+        val btnfab = requireView().findViewById<FloatingActionButton>(R.id.fab_al_btn)//nuevo
+
+        btnfab.setOnClickListener {
+            //se debe escribir el nombre que tiene en el mobile_navigation.xml
+            findNavController().navigate(R.id.nvoGastoFragment)
+
+        }    // TODO: Use the ViewModel
     }
 
-//    fun onFabClick(view: View) {
-//        // Código para realizar la acción deseada al hacer clic en el FloatingActionButton
-//
-//        // Por ejemplo, puedes navegar a otro fragmento
-//        val nextFragment = HomeFragment()
-//        val fragmentManager = requireActivity().supportFragmentManager
-//        fragmentManager.beginTransaction()
-//            .replace(R.id.nav_home, nextFragment)
-//            .addToBackStack(null)
-//            .commit()
-//    }
+
 }
