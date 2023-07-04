@@ -14,4 +14,44 @@
         android:gravity="center"
         android:padding="16dp"/>
 
+    <Spinner
+        android:id="@+id/spinner_categories"
+        android:layout_width="268dp"
+        android:layout_height="43dp"
+        android:overlapAnchor="false"
+        android:prompt="Categorias de gastos"
+        android:translationX="70dp"
+        android:translationY="100dp"
+        android:background="#F8F5F5"/>
+
+    <EditText
+        android:id="@+id/editTextDescrip"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:drawableStart="@drawable/ic_edit_note"
+        android:inputType="text"
+        android:hint="Desripcion de gasto"
+        android:translationX="30dp"
+        android:translationY="200dp" />
+
+    <EditText
+        android:id="@+id/editTextAmount"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:drawableStart="@drawable/ic_money"
+        android:inputType="numberDecimal"
+        android:hint="Monto"
+        android:translationX="30dp"
+        android:translationY="300dp" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar"
+        android:translationX="160dp"
+        android:translationY="500dp" />
+
 </FrameLayout>
