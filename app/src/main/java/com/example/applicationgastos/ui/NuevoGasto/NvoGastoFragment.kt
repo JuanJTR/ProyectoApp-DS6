@@ -33,7 +33,7 @@ class NvoGastoFragment : Fragment() {
         //id de spinner
         val spinner: Spinner = requireView().findViewById(R.id.spinner_categories)
         //Opciones del Spinner | se agregan a un array tipo string
-        val options = arrayOf("Alimentos", "Comida", "Entreteniminento", "Pagos y Cuentas", "Ropa y Calzado", "Salud", "Transporte", "Otros")
+        val options = arrayOf("Selecciona una categoria", "Alimentos", "Comida", "Entreteniminento", "Pagos y Cuentas", "Ropa y Calzado", "Salud", "Transporte", "Otros")
         //adaptador de los datos del array, para mosgtrar opciones del Spinner
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
