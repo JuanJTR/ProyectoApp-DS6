@@ -1,20 +1,80 @@
+//package com.example.applicationgastos.ui.entretenimiento
+//
+//import android.os.Bundle
+//import android.view.LayoutInflater
+//import android.view.View
+//import android.view.ViewGroup
+//import android.widget.TextView
+//import androidx.fragment.app.Fragment
+//import androidx.lifecycle.ViewModelProvider
+//import androidx.navigation.fragment.findNavController
+//import com.example.applicationgastos.R
+//import com.example.applicationgastos.databinding.FragmentGalleryBinding
+//import com.example.applicationgastos.ui.alimentos.AlimentosViewModel
+//import com.google.android.material.floatingactionbutton.FloatingActionButton
+//
+//class GalleryFragment : Fragment() {
+//
+//    private var _binding: FragmentGalleryBinding? = null
+//
+//    // This property is only valid between onCreateView and
+//    // onDestroyView.
+//    private val binding get() = _binding!!
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View {
+//        val galleryViewModel =
+//            ViewModelProvider(this).get(GalleryViewModel::class.java)
+//
+//        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+//        val root: View = binding.root
+//
+//        return root
+//    }
+//
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        viewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+//        // TODO: Use the ViewModel
+//
+//        //enlace al fragmento de nuevo registro
+//        val btnfab = requireView().findViewById<FloatingActionButton>(R.id.fab_al_btn)//nuevo
+//
+//        btnfab.setOnClickListener {
+//            //se debe escribir el nombre que tiene en el mobile_navigation.xml
+//            findNavController().navigate(R.id.nvoGastoFragment)
+//
+//        }    // TODO: Use the ViewModel
+//    }
+//
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
+//}
+
 package com.example.applicationgastos.ui.entretenimiento
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.applicationgastos.R
 import com.example.applicationgastos.databinding.FragmentGalleryBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class GalleryFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
+    // Se agrego el GalleryViewModel por medio de... lateinit var viewModel
+    private lateinit var viewModel: GalleryViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,43 +82,25 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        val galleryViewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /*val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-
-        **ESTO VA EN GALLERY.XML; BORRA EL QUE ESTA Y PEGAR ESTE(ORIGINAL)
-        <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.entretenimiento.GalleryFragment">
-
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-        */
         return root
+    }
+
+    // Se elimino el método onActivityCreated y se movio el código relacionado
+    // con la inicialización del GalleryViewModel al método onViewCreated
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+
+        // Enlace al fragmento de nuevo registro
+        val btnFab = view.findViewById<FloatingActionButton>(R.id.fab)
+        btnFab.setOnClickListener {
+            findNavController().navigate(R.id.nvoGastoFragment)
+        }
     }
 
     override fun onDestroyView() {
