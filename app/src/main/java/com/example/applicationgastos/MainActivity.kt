@@ -1,8 +1,10 @@
 package com.example.applicationgastos
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.applicationgastos.databinding.ActivityMainBinding
+import com.example.applicationgastos.ui.CloseFragment
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -114,22 +117,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     //conecta el option menubar , con el CloseFargment
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return when (item.itemId){
+        //accion del menu item, opcion settings, manda al fragmento sign off, que es para cerrar sesion
+        return when (item.itemId) {
             R.id.settings -> {
-                goToSettings()
+                val navController = findNavController(R.id.nav_host_fragment_content_main)
+                navController.navigate(R.id.closeFragment)
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    private fun goToSettings(){
-        val intent = Intent(this,CloseFragment::class.java)
-        startActivity(intent)//accion
-    }*/
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
