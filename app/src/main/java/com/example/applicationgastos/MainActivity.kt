@@ -1,5 +1,6 @@
 package com.example.applicationgastos
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.navigation.NavigationView
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
+    private val PREFS_NAME = "MyPrefs"
+    private val KEY_FIRST_RUN = "firstRun"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,6 +30,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
+        val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val isFirstRun = prefs.getBoolean(KEY_FIRST_RUN, true)
         /*binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -61,20 +65,47 @@ class MainActivity : AppCompatActivity() {
         //Base de Datos
         val db = Room.databaseBuilder(
             this,
-            DB::class.java, "user"
+            DB::class.java, "BD"
         ).allowMainThreadQueries().build()
-        println("users2")
 
         lifecycleScope.launch {
-            db.daoUser().insertAll(User( "solisdonoso19", "Carlos Solis", "1234", 100.00
-        ))
+            if (isFirstRun) {
+                db.categoryDAO().insertAll(Category("Alimentos"))
+                db.categoryDAO().insertAll(Category("Comida"))
+                db.categoryDAO().insertAll(Category("Entretenimiento"))
+                db.categoryDAO().insertAll(Category("Pagos & Cuentas"))
+                db.categoryDAO().insertAll(Category("Ropa & Calzado"))
+                db.categoryDAO().insertAll(Category("Salud"))
+                db.categoryDAO().insertAll(Category("Transporte"))
+                db.categoryDAO().insertAll(Category("Otros"))
 
-//      val userDao = db.daoUser()
-        val users = db.daoUser().getAll()
-        for (i in users){
-            println("${i.userID},${i.name}, ${i.user}, ${i.password}, ${i.salary}")
+                val editor = prefs.edit()
+                editor.putBoolean(KEY_FIRST_RUN, false)
+                editor.apply()
+            }
+
+            db.daoUser().insertAll(
+                User(
+                    "solisdonoso19", "Carlos Solis", "1234", 100.00
+                )
+            )
+            val users = db.daoUser().getAll()
+            for (i in users) {
+                println("${i.userID},${i.name}, ${i.user}, ${i.password}, ${i.salary}")
+            }
+
+            val categories = db.categoryDAO().getAll()
+            for (c in categories) {
+                println("${c.categoryID}, ${c.category}")
+            }
+
+            db.gastosDAO().insertAll(Gastos(1, 100.00, "19/8/2023", "SuperMercado"))
+            val gastos = db.gastosDAO().getGastos()
+            for (g in gastos) {
+                println("${g.gastos.monto}, ${g.gastos.fecha}, ${g.gastos.descripcion}, ${g.category}")
+            }
         }
-    }}
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
