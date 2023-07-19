@@ -37,6 +37,9 @@ android {
 }
 
 dependencies {
+    //dependencia para poder usar CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
@@ -74,4 +77,5 @@ dependencies {
 
     // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:$room_version")
+
 }
