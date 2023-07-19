@@ -72,9 +72,9 @@ class ComidaFragment : Fragment() {
             textView2.text = d.gastos.monto.toString()
             textView2.setTextAppearance(R.style.TableCellStyle)
 
-            val textView3 = TextView(this.requireContext().applicationContext)
-            textView3.text = d.gastos.descripcion
-            textView3.setTextAppearance(R.style.TableCellStyle)
+//            val textView3 = TextView(this.requireContext().applicationContext)
+//            textView3.text = d.gastos.descripcion
+//            textView3.setTextAppearance(R.style.TableCellStyle)
 
             val textView4 = TextView(this.requireContext().applicationContext)
             textView4.text = d.gastos.fecha
@@ -83,7 +83,7 @@ class ComidaFragment : Fragment() {
 
             tableRow.addView(textView1)
             tableRow.addView(textView2)
-            tableRow.addView(textView3)
+//            tableRow.addView(textView3)
             tableRow.addView(textView4)
 
             table.addView(tableRow)

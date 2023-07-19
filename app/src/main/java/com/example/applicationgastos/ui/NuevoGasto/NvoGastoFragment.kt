@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
@@ -30,6 +31,8 @@ class NvoGastoFragment : Fragment() {
     }
 
     private lateinit var viewModel: NvoGastoViewModel
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,6 +67,9 @@ class NvoGastoFragment : Fragment() {
             description = descriptionTxt.text.toString()
             monto = amountTxt.text.toString().toDouble()
             addData(categorySelected, description, monto)
+
+            Toast.makeText(requireContext(), "Agregaste un gasto en " + categorySelected , Toast.LENGTH_LONG).show()
+
         }
     }
 
@@ -76,6 +82,7 @@ class NvoGastoFragment : Fragment() {
         when(category){
             "Alimentos" ->{
                 categoryID = 1
+                //Toast.makeText(requireContext(), "Agregaste un gasto en " + category , Toast.LENGTH_SHORT).show()
             }
             "Comida" ->{
                 categoryID = 2
@@ -113,4 +120,5 @@ class NvoGastoFragment : Fragment() {
         }
         println(categoryID)
     }
+
 }

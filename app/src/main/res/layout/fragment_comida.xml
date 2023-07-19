@@ -28,34 +28,46 @@
 
             <TableRow
                 style="@style/TableHeaderStyle"
-                >
+                android:scrollbarSize="4dp"
+                android:padding="5dp"
+                android:gravity="center">
 
                 <TextView
                     style="@style/TableCellStyle"
-                    android:text="Detalle"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif-black"
-                    android:textColor="#FBFAFA" />
-
-                <TextView
-                    android:text="Monto"
-                    style="@style/TableCellStyle"
-                    android:fontFamily="sans-serif-black"
-                    android:textColor="#FBFAFA"/>
-                <TextView
+                    android:scrollbarSize="10dp"
                     android:text="Descripción"
-                    style="@style/TableCellStyle"
-                    android:fontFamily="sans-serif-black"
-                    android:textColor="#FBFAFA"/>
+                    android:textColor="#FBFAFA"
+                    android:textSize="16sp"
+                    android:padding="5dp" />
+
                 <TextView
-                    android:text="Fecha"
+                    android:id="@+id/description"
                     style="@style/TableCellStyle"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif-black"
-                    android:textColor="#FBFAFA"/>
+                    android:scrollbarSize="10dp"
+                    android:text="Monto"
+                    android:textColor="#FBFAFA"
+                    android:textSize="16sp"
+                    android:padding="5dp" />
+
+                <TextView
+                    style="@style/TableCellStyle"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black"
+                    android:scrollbarSize="10dp"
+                    android:text="Fecha"
+                    android:textColor="#FBFAFA"
+                    android:textSize="16sp"
+                    android:padding="5dp"/>
             </TableRow>
 
         </TableLayout>
 
     </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

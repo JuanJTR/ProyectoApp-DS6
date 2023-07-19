@@ -14,14 +14,14 @@ import com.example.applicationgastos.R
 class CustomAdapter (private val context: Context, private val database: DB): RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     val images = intArrayOf(
-        R.drawable.ic_money,
-        R.drawable.ic_money,
-        R.drawable.ic_money,
-        R.drawable.ic_money,
-        R.drawable.ic_money,
-        R.drawable.ic_money,
-        R.drawable.ic_money,
-        R.drawable.ic_money
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank,
+        R.drawable.ic_money_rank
     )
 
     val titles = database.gastosDAO().getCategoriaConMayorSuma()
