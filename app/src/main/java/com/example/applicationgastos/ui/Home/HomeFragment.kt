@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import com.example.applicationgastos.DB
 import com.example.applicationgastos.R
 import com.example.applicationgastos.databinding.FragmentHomeBinding
 
@@ -27,19 +29,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val homeViewModel =
-//            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val db = Room.databaseBuilder(
+            this.requireContext().applicationContext,
+            DB::class.java, "BD"
+        ).allowMainThreadQueries().build()
+        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerView)
+        val adapter = CustomAdapter(this.requireContext().applicationContext, db)
 
-        val recyclerView= root.findViewById<RecyclerView>(R.id.recyclerView)
-        val adapter = CustomAdapter()
-
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
-        //val cardView: CardView = binding.cardView //new
-
 
         return root
     }

@@ -87,26 +87,26 @@ class MainActivity : AppCompatActivity() {
                 editor.apply()
             }
 
-            db.daoUser().insertAll(
-                User(
-                    "solisdonoso19", "Carlos Solis", "1234", 100.00
-                )
-            )
-            val users = db.daoUser().getAll()
-            for (i in users) {
-                println("${i.userID},${i.name}, ${i.user}, ${i.password}, ${i.salary}")
-            }
+//            db.daoUser().insertAll(
+//                User(
+//                    "solisdonoso19", "Carlos Solis", "1234", 100.00
+//                )
+//            )
+//            val users = db.daoUser().getAll()
+//            for (i in users) {
+//                println("${i.userID},${i.name}, ${i.user}, ${i.password}, ${i.salary}")
+//            }
 
-            val categories = db.categoryDAO().getAll()
+            val categories = db.gastosDAO().getCategoriaConMayorSuma()
             for (c in categories) {
-                println("${c.categoryID}, ${c.category}")
+                println("${c.nombre}, ${c.total}")
             }
 
-            db.gastosDAO().insertAll(Gastos(1, 100.00, "19/8/2023", "SuperMercado"))
-            val gastos = db.gastosDAO().getGastos()
-            for (g in gastos) {
-                println("${g.gastos.monto}, ${g.gastos.fecha}, ${g.gastos.descripcion}, ${g.category}")
-            }
+//            db.gastosDAO().insertAll(Gastos(1, 100.00, "19/8/2023", "SuperMercado"))
+//            val gastos = db.gastosDAO().getGastos()
+//            for (g in gastos) {
+//                println("${g.gastos.monto}, ${g.gastos.fecha}, ${g.gastos.descripcion}, ${g.category}, ${g.gastos.categoryID}")
+//            }
         }
     }
 

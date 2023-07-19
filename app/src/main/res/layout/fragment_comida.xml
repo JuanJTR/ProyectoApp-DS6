@@ -21,6 +21,7 @@
             android:padding="16dp"/>
 
         <TableLayout
+            android:id="@+id/table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
@@ -41,28 +42,15 @@
                     android:fontFamily="sans-serif-black"
                     android:textColor="#FBFAFA"/>
                 <TextView
-                    android:text="%"
+                    android:text="Descripción"
                     style="@style/TableCellStyle"
                     android:fontFamily="sans-serif-black"
                     android:textColor="#FBFAFA"/>
-            </TableRow>
-
-            <TableRow>
                 <TextView
-                    android:text="Restaurante Sublimotion"
-                    android:textColor="#424040"
-                    style="@style/TableCellStyle"/>
-
-                <TextView
+                    android:text="Fecha"
                     style="@style/TableCellStyle"
-                    android:textColor="#424040"
-                    android:text="1,900.00" />
-
-                <TextView
-                    style="@style/TableCellStyle"
-                    android:textColor="#424040"
-                    android:text="15%" />
-
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="#FBFAFA"/>
             </TableRow>
 
         </TableLayout>
